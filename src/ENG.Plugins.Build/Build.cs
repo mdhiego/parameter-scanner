@@ -13,5 +13,5 @@ sealed partial class Build : NukeBuild
 
     [Solution(GenerateProjects = true)] Solution Solution;
 
-    public static int Main() => Execute<Build>(static build => build.Compile);
+    public static int Main() => Execute<Build>(static build => build.CreateInstaller);
 }
