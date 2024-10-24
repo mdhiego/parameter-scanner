@@ -7,18 +7,18 @@ Param(
 Write-Output "PowerShell $($PSVersionTable.PSEdition) version $($PSVersionTable.PSVersion)"
 
 Set-StrictMode -Version 2.0; $ErrorActionPreference = "Stop"; $ConfirmPreference = "None"; trap { Write-Error $_ -ErrorAction Continue; exit 1 }
-$PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
 
 ###########################################################################
 # CONFIGURATION
 ###########################################################################
 
-$BuildProjectFile = "$PSScriptRoot\src\ENG.Plugins.Build\ENG.Plugins.Build.csproj"
-$TempDirectory = "$PSScriptRoot\\.nuke\temp"
+$SolutionDirectory = Split-Path $PSScriptRoot -Parent
+$BuildProjectFile = "$SolutionDirectory\src\ENG.Plugins.Build\ENG.Plugins.Build.csproj"
+$TempDirectory = "$SolutionDirectory\.nuke\temp"
 
-$DotNetGlobalFile = "$PSScriptRoot\\global.json"
+$DotNetGlobalFile = "$SolutionDirectory\global.json"
 $DotNetInstallUrl = "https://dot.net/v1/dotnet-install.ps1"
-$DotNetChannel = "STS"
+$DotNetChannel = "Current"
 
 $env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE = 1
 $env:DOTNET_CLI_TELEMETRY_OPTOUT = 1
@@ -64,11 +64,6 @@ else {
 }
 
 Write-Output "Microsoft (R) .NET SDK version $(& $env:DOTNET_EXE --version)"
-
-if (Test-Path env:NUKE_ENTERPRISE_TOKEN) {
-    & $env:DOTNET_EXE nuget remove source "nuke-enterprise" > $null
-    & $env:DOTNET_EXE nuget add source "https://f.feedz.io/nuke/enterprise/nuget" --name "nuke-enterprise" --username "PAT" --password $env:NUKE_ENTERPRISE_TOKEN > $null
-}
 
 ExecSafe { & $env:DOTNET_EXE build $BuildProjectFile /nodeReuse:false /p:UseSharedCompilation=false -nologo -clp:NoSummary --verbosity quiet }
 ExecSafe { & $env:DOTNET_EXE run --project $BuildProjectFile --no-build -- $BuildArguments }

@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution_items", ".solutio
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
-		dotnet-tools.json = dotnet-tools.json
 		global.json = global.json
 	EndProjectSection
 EndProject
