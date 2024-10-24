@@ -1,6 +1,6 @@
-# Parameters
+# Parameter Scanner Add-in
 
-This solution comprises and Autodesk Revit plugin project, a installer project, and a build project to build de plugin project for each supported
+This solution comprises and Autodesk Revit add-in project, a installer project, and a build project to build de add-in project for each supported
 Revit versions
 generating a single/multi-user installer at the end.
 The solution was organized in a manner that makes it easy to support multiple .NET BIM softwares and versions (e.g. Navisworks).
