@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "properties": {
+    "GitHubToken": {
+      "type": "string",
+      "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+    },
     "Solution": {
       "type": "string",
       "description": "Path to a solution file that is automatically loaded"
-    },
-    "VersionControlToken": {
-      "type": "string",
-      "default": "Secrets must be entered via 'nuke :secrets [profile]'"
     }
   },
   "definitions": {
@@ -37,7 +37,7 @@
         "Clean",
         "Compile",
         "CreateInstaller",
-        "Publish"
+        "PublishGitHub"
       ]
     },
     "Verbosity": {

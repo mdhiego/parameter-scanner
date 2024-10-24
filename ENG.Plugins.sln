@@ -7,8 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution_items", ".solutio
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
-		dotnet-tools.json = dotnet-tools.json
 		global.json = global.json
+		src\ENG.Plugins.Build\Build.Configuration.cs = src\ENG.Plugins.Build\Build.Configuration.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9A97E4F0-D49C-44F2-BFAD-2F8DE783611E}"
@@ -29,14 +29,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENG.Plugins.Revit.Installer
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug2020|Any CPU = Debug2020|Any CPU
 		Debug2021|Any CPU = Debug2021|Any CPU
 		Debug2022|Any CPU = Debug2022|Any CPU
 		Debug2023|Any CPU = Debug2023|Any CPU
 		Debug2024|Any CPU = Debug2024|Any CPU
 		Debug2025|Any CPU = Debug2025|Any CPU
-		Release|Any CPU = Release|Any CPU
 		Release2020|Any CPU = Release2020|Any CPU
 		Release2021|Any CPU = Release2021|Any CPU
 		Release2022|Any CPU = Release2022|Any CPU
@@ -44,6 +42,7 @@ Global
 		Release2024|Any CPU = Release2024|Any CPU
 		Release2025|Any CPU = Release2025|Any CPU
 		Installer|Any CPU = Installer|Any CPU
+		Build|Any CPU = Build|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Debug2022|Any CPU.ActiveCfg = Debug2022|Any CPU
@@ -70,13 +69,10 @@ Global
 		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Release2021|Any CPU.Build.0 = Release2021|Any CPU
 		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Release2020|Any CPU.ActiveCfg = Release2020|Any CPU
 		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Release2020|Any CPU.Build.0 = Release2020|Any CPU
-		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Debug|Any CPU.ActiveCfg = Debug2023|Any CPU
 		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Installer|Any CPU.ActiveCfg = Release2023|Any CPU
-		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Release|Any CPU.ActiveCfg = Release2023|Any CPU
-		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}.Build|Any CPU.ActiveCfg = Debug2023|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Debug2023|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Debug2024|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Release2022|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Release2023|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Release2024|Any CPU.ActiveCfg = Release|Any CPU
@@ -88,10 +84,10 @@ Global
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Debug2021|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Debug2022|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Installer|Any CPU.ActiveCfg = Release|Any CPU
-		{840AF479-5227-4100-A8E0-2C62361FE98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Build|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C332C9-A9A0-4707-BD95-EB5F60E03B87}.Build|Any CPU.Build.0 = Debug|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Debug2023|Any CPU.ActiveCfg = Debug|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Debug2024|Any CPU.ActiveCfg = Debug|Any CPU
-		{840AF479-5227-4100-A8E0-2C62361FE98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Release2022|Any CPU.ActiveCfg = Release|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Release2023|Any CPU.ActiveCfg = Release|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Release2024|Any CPU.ActiveCfg = Release|Any CPU
@@ -103,8 +99,8 @@ Global
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Debug2021|Any CPU.ActiveCfg = Debug|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Debug2022|Any CPU.ActiveCfg = Debug|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Installer|Any CPU.ActiveCfg = Release|Any CPU
-		{840AF479-5227-4100-A8E0-2C62361FE98B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{840AF479-5227-4100-A8E0-2C62361FE98B}.Installer|Any CPU.Build.0 = Release|Any CPU
+		{840AF479-5227-4100-A8E0-2C62361FE98B}.Build|Any CPU.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

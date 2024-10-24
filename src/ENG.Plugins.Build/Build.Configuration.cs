@@ -9,7 +9,6 @@ sealed partial class Build
     protected override void OnBuildInitialized()
     {
         Configurations = ["Release*", "Installer*"];
-
         InstallersMap = new()
         {
             { Solution.src.ENG_Plugins_Revit_Installer, Solution.src.ENG_Plugins_Revit },
