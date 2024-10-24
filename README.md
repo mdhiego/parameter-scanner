@@ -19,7 +19,7 @@ these frameworks, you can do so by visiting the following:
 * For Revit 2020 - 2024:
   [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
 
-* For Revit 2025+:
+* For the build system and Revit 2025+ add-in:
   [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet)
 
 After installing the necessary frameworks, clone this repository to your local machine and navigate to the project directory.
