@@ -1,13 +1,18 @@
-# Parameter Scanner Add-in
+# Parameter Scanner &emsp; [![Workflow](https://github.com/mdhiego/parameter-scanner/actions/workflows/Workflow.yml/badge.svg)](https://github.com/mdhiego/parameter-scanner/actions/workflows/Workflow.yml)
 
-This solution comprises and Autodesk Revit add-in project, a installer project, and a build project to build de add-in project for each supported
-Revit versions
-generating a single/multi-user installer at the end.
-The solution was organized in a manner that makes it easy to support multiple .NET BIM softwares and versions (e.g. Navisworks).
+**Parameter Scanner is a Revit add-in to help you to verify that all required parameters in your Revit models have been correctly filled out.**
+
+---
+
+### Description
+
+The solution comprises and Autodesk Revit add-in project, a installer project, and a build project to build de add-in project for each supported
+Revit versions generating a single/multi-user installer at the end.
+The solution was organized in a manner that makes it easy to support multiple .NET BIM software programs and versions (e.g. Navisworks).
 
 ### Technologies Used
 
-* C# 12
+* C#
 * .NET Framework 4.8
 * .NET 8
 
@@ -16,7 +21,7 @@ The solution was organized in a manner that makes it easy to support multiple .N
 Before you can build this project, you will need to install .NET, depending upon the solution file you are building. If you haven't already installed
 these frameworks, you can do so by visiting the following:
 
-* For Revit 2020 - 2024:
+* For the Revit 2020 - 2024:
   [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
 
 * For the build system and Revit 2025+ add-in:
@@ -30,7 +35,7 @@ If you don't have Visual Studio installed, download it from [here](https://visua
 
 1. Open Visual Studio
 2. Click on `File -> Open -> Project/Solution` and locate your solution file to open.
-3. In the `Solutions Configuration` drop-down menu, select `Release2025` or `Debug2025`. Suffix `2025` means compiling for the Revit 2025.
+3. In the `Solutions Configuration` drop-down menu, select `Release2023` or `Debug2023`. Suffix `2023` means compiling for the Revit 2023.
 4. After the solution loads, you can build it by clicking on `Build -> Build Solution`.
 
 ### Solution structure
