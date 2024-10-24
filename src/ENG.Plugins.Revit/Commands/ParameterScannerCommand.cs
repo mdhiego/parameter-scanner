@@ -23,7 +23,7 @@ public class ParameterScannerCommand : ExternalCommand
             s_view = new ParameterScannerView(viewModel);
             s_view.Closed += static (_, _) => s_view = null;
 
-            _ = s_view?.ShowDialog();
+            s_view?.Show();
         }
         else
         {

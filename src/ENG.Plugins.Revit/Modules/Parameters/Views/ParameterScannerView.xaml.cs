@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ENG.Plugins.Revit.Common.Abstractions;
 using ENG.Plugins.Revit.Modules.Parameters.ViewModels;
 
 namespace ENG.Plugins.Revit.Modules.Parameters.Views;
@@ -7,7 +8,7 @@ namespace ENG.Plugins.Revit.Modules.Parameters.Views;
 /// <summary>
 ///     View for the Parameter Scanner
 /// </summary>
-public sealed partial class ParameterScannerView
+public sealed partial class ParameterScannerView : IClosableWindow
 {
     public ParameterScannerView(ParameterScannerViewModel viewModel)
     {
