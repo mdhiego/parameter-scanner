@@ -8,16 +8,16 @@ namespace ENG.Plugins.Build;
 
 sealed partial class Build
 {
-    private Target Publish => def => def
+    private Target PublishGitHub => def => def
         .DependsOn(CreateInstaller)
-        .Requires(() => VersionControlToken)
+        .Requires(() => GitHubToken)
         .Requires(() => GitRepository)
         .OnlyWhenStatic(() => IsServerBuild && GitRepository.IsOnMainOrMasterBranch())
         .Executes(async () =>
         {
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
-                Credentials = new Credentials(VersionControlToken),
+                Credentials = new Credentials(GitHubToken),
             };
 
             string gitHubName = GitRepository.GetGitHubName();
