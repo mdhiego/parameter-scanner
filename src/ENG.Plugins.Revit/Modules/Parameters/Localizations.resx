@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+    <data name="IsolateInView_ButtonContent" xml:space="preserve">
+        <value>Isolate in View</value>
+    </data>
+    <data name="IsolateInView_Tooltip" xml:space="preserve">
+        <value>Isolate matching elements in view</value>
+    </data>
+    <data name="Select_ButtonContent" xml:space="preserve">
+        <value>Select</value>
+    </data>
+    <data name="Select_Tooltip" xml:space="preserve">
+        <value>Select matching elements</value>
+    </data>
+    <data name="ParameterName_Label" xml:space="preserve">
+        <value>Parameter Name</value>
+    </data>
+    <data name="ParameterValue_Label" xml:space="preserve">
+        <value>Parameter Value</value>
+    </data>
+    <data name="ParameterScanner_Title" xml:space="preserve">
+        <value>Parameter Scanner</value>
+    </data>
+    <data name="IsolateInView_TransactionName" xml:space="preserve">
+        <value>Isolate elements in view</value>
+    </data>
+    <data name="ElementsFoundMessage" xml:space="preserve">
+        <value>{0} elements found!</value>
+    </data>
+</root>

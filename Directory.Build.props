@@ -1,0 +1,35 @@
+<Project>
+
+    <PropertyGroup>
+        <SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>annotations</Nullable>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <!-- Enable the compiler strict mode (see https://www.meziantou.net/csharp-compiler-strict-mode.htm) -->
+        <Features>strict</Features>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <AnalysisLevelStyle>latest</AnalysisLevelStyle>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Company>ENG</Company>
+        <PublisherName>ENG</PublisherName>
+        <Copyright>Copyright (c) 2024 ENG</Copyright>
+        <DefaultLanguage>en</DefaultLanguage>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Include PolySharp to generate polyfills -->
+        <PackageReference Include="PolySharp" Version="1.14.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>

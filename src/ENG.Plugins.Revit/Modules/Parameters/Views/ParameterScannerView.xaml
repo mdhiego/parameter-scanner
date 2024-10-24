@@ -1,0 +1,77 @@
+﻿<Window
+    x:Class="ENG.Plugins.Revit.Modules.Parameters.Views.ParameterScannerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:module="clr-namespace:ENG.Plugins.Revit.Modules.Parameters"
+    xmlns:viewModels="clr-namespace:ENG.Plugins.Revit.Modules.Parameters.ViewModels"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance viewModels:ParameterScannerViewModel}"
+    ResizeMode="CanResize"
+    WindowStartupLocation="CenterScreen"
+    Title="{x:Static module:Localizations.ParameterScanner_Title}"
+    MinWidth="300" Width="350"
+    MinHeight="300" Height="300"
+    Loaded="Window_OnLoaded">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="16" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="16" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0"
+               Source="../../../Resources/Images/ParameterScanner.png"
+               Width="64" Height="64" />
+
+        <StackPanel Grid.Row="2" Grid.IsSharedSizeScope="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Content="{x:Static module:Localizations.ParameterName_Label}"
+                       VerticalContentAlignment="Center" />
+                <ComboBox Grid.Column="1"
+                          ItemsSource="{Binding ParameterNames}"
+                          SelectedItem="{Binding ParameterName}"
+                          VerticalContentAlignment="Center" />
+            </Grid>
+            <Separator Height="12" Visibility="Hidden" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Content="{x:Static module:Localizations.ParameterValue_Label}"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Text="{Binding ParameterValue}"
+                         VerticalContentAlignment="Center" />
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Padding="12,0"
+                    Content="{x:Static module:Localizations.IsolateInView_ButtonContent}"
+                    ToolTip="{x:Static module:Localizations.IsolateInView_Tooltip}"
+                    Command="{Binding IsolateInViewCommand}"
+                    Height="24"
+                    VerticalContentAlignment="Center" />
+            <Separator Width="12" Visibility="Hidden" />
+            <Button Padding="12,0"
+                    Content="{x:Static module:Localizations.Select_ButtonContent}"
+                    ToolTip="{x:Static module:Localizations.Select_Tooltip}"
+                    Command="{Binding SelectCommand}"
+                    Height="24"
+                    VerticalContentAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>

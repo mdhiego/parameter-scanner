@@ -1,0 +1,169 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <UseWPF>true</UseWPF>
+    <Product>ENG.Revit</Product>
+    <FileVersion>0.1.0</FileVersion>
+    <PublishAddinFiles>true</PublishAddinFiles>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Configurations>Debug2020;Release2020;Debug2021;Release2021;Debug2022;Release2022;Debug2023;Release2023;Debug2024;Release2024;Debug2025;Release2025</Configurations>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('Debug'))">
+    <VersionTarget>$(Configuration.TrimStart('Debug'))</VersionTarget>
+    <VersionTarget Condition="$(VersionTarget.Equals(''))">2023</VersionTarget>
+    <DefineConstants>$(DefineConstants);DEBUG;V$(VersionTarget)</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.StartsWith('Release'))">
+    <VersionTarget>$(Configuration.TrimStart('Release'))</VersionTarget>
+    <VersionTarget Condition="$(VersionTarget.Equals(''))">2023</VersionTarget>
+    <DefineConstants>$(DefineConstants);RELEASE;V$(VersionTarget)</DefineConstants>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(VersionTarget) &lt; 2025">
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(VersionTarget) &gt; 2024">
+    <TargetFramework>net8.0-windows</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Autodesk\Revit $(VersionTarget)\Revit.exe</StartProgram>
+    <StartArguments>/language PTB</StartArguments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.*"/>
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(VersionTarget).*"/>
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(VersionTarget).*"/>
+    <PackageReference Include="Nice3point.Revit.Extensions" Version="$(VersionTarget).*"/>
+    <PackageReference Include="Nice3point.Revit.Toolkit" Version="$(VersionTarget).*"/>
+    <PackageReference Include="WpfAnalyzers" Version="4.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Autodesk.Revit.DB"/>
+    <Using Include="Autodesk.Revit.UI"/>
+    <Using Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\*"/>
+    <Resource Include="Resources\Icons\*"/>
+    <Resource Include="Resources\Images\*"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Localizations\Messages.Error.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Error.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localizations\Messages.Info.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Info.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localizations\Messages.Prompt.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Prompt.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localizations\Messages.Warning.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Warning.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Localizations\Texts.Shared.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Texts.Shared.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Modules\Parameters\Localizations.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localizations.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Localizations\Messages.Error.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.Error.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Localizations\Messages.Info.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.Info.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Localizations\Messages.Prompt.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.Prompt.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Localizations\Messages.Warning.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.Warning.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Localizations\Texts.Shared.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Texts.Shared.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Modules\Parameters\Localizations.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Localizations.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <Target Name="SignDll" AfterTargets="CoreBuild">
+    <!-- signtool [command] [options] [file_name | ...] -->
+    <!-- <Exec Command="&quot;%ProgramFiles(x86)%\Windows Kits\10\App Certification Kit\signtool.exe&quot; sign /td SHA256 /fd SHA256 /f &quot;$(SolutionDir)key.pfx&quot; /p &quot;w4](_r+}-ZA+EGw(&quot; &quot;$(TargetPath)&quot;"/>-->
+  </Target>
+
+  <Target Name="CopyFiles" AfterTargets="SignDll">
+    <ItemGroup>
+      <RootItems Include="$(TargetDir)\**\*.*"/>
+      <AddinItem Include="$(ProjectDir)*.addin"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <RootDir>bin\Publish $(VersionTarget) - $(Configuration)\</RootDir>
+      <AddinDir>$(RootDir)\</AddinDir>
+    </PropertyGroup>
+    <Copy SourceFiles="@(RootItems)" DestinationFolder="$(RootDir)\%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300"/>
+    <Copy SourceFiles="@(AddinItem)" DestinationFolder="$(AddinDir)"/>
+
+    <!-- Copy PackageContents.xml -->
+    <ItemGroup>
+      <PackageContentsItem Include="$(MSBuildProjectDirectory).Installer\PackageContents.xml"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <PackageContentsFolder>$(AppData)\Autodesk\ApplicationPlugins\$(Product).bundle\</PackageContentsFolder>
+    </PropertyGroup>
+    <Message Text="$(MSBuildProjectName) -&gt; Copying PackageContents.xml to $(PackageContentsFolder)" Importance="High"/>
+    <Copy SourceFiles="@(PackageContentsItem)" DestinationFolder="$(PackageContentsFolder)\"/>
+
+    <!-- Copy addin files -->
+    <ItemGroup>
+      <AddinFiles Include="$(RootDir)**\*.*"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <AddinFolder>$(PackageContentsFolder)Contents\$(VersionTarget)</AddinFolder>
+    </PropertyGroup>
+    <Message Text="$(MSBuildProjectName) -&gt; Copying addin files to $(AddinFolder)" Importance="High"/>
+    <Copy SourceFiles="@(AddinFiles)" DestinationFolder="$(AddinFolder)\%(RecursiveDir)"/>
+  </Target>
+
+</Project>

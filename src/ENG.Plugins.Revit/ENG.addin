@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+
+  <AddIn Type="Application">
+    <Name>ENG.Revit</Name>
+    <Assembly>.\ENG.Plugins.Revit.dll</Assembly>
+    <FullClassName>ENG.Plugins.Revit.Application</FullClassName>
+    <AddInId>37B78899-E7E2-4214-9E76-A9BBA4C4D700</AddInId>
+    <Description>A set of tools that helps you to work faster and smarter.</Description>
+    <VendorId>ENG</VendorId>
+    <VendorDescription>powered by ENG, engbim.com</VendorDescription>
+    <VendorEmail></VendorEmail>
+  </AddIn>
+  
+</RevitAddIns>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="Revit" ProductType="Application"
+                    ProductCode="{37B78899-E7E2-4214-9E76-A9BBA4C4D700}"
+                    UpgradeCode="{1BCA6E77-D1C7-46B2-9B04-EF127F2AA700}"
+                    Name="ENG - Revit" Author="ENG"
+                    Description="A set of tools that helps you to work faster and smarter"
+                    SupportedLocales="Enu|Ptb|Esp"
+                    AppNameSpace="appstore.exchange.autodesk.com"
+                    AppVersion="0.1.0" FriendlyVersion="0.1.0"
+                    Icon="./Contents/Resources/app.ico"
+                    OnlineDocumentation="https://engbim.com" HelpFile="./Contents/help.en.html">
+    <CompanyDetails Name="ENG" Email="clients@engbim.com" Url="https://engbim.com" Phone=""/>
+    <Components AppendInDescription="2022 parts">
+        <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2022" SeriesMax="R2022"/>
+        <ComponentEntry AppName="ENG.Plugins.Revit" Version="2022.0.0"
+                        ModuleName="./Contents/2022/ENG.addin"
+                        AppDescription="ENG - Revit"/>
+    </Components>
+    <Components AppendInDescription="2023 parts">
+        <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2023" SeriesMax="R2023"/>
+        <ComponentEntry AppName="ENG.Plugins.Revit" Version="2023.0.0"
+                        ModuleName="./Contents/2023/ENG.addin"
+                        AppDescription="ENG - Revit"/>
+    </Components>
+    <Components AppendInDescription="2024 parts">
+        <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2024" SeriesMax="R2024"/>
+        <ComponentEntry AppName="ENG.Plugins.Revit" Version="2024.0.0"
+                        ModuleName="./Contents/2024/ENG.addin"
+                        AppDescription="ENG - Revit"/>
+    </Components>
+  <Components AppendInDescription="2025 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2025" SeriesMax="R2025"/>
+    <ComponentEntry AppName="ENG.Plugins.Revit" Version="2025.0.0"
+                    ModuleName="./Contents/2025/ENG.addin"
+                    AppDescription="ENG - Revit"/>
+  </Components>
+</ApplicationPackage>
