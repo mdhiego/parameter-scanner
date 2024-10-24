@@ -5,7 +5,6 @@
     <UseWPF>true</UseWPF>
     <Product>ENG.Revit</Product>
     <FileVersion>0.1.0</FileVersion>
-    <PublishAddinFiles>true</PublishAddinFiles>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
@@ -60,6 +59,12 @@
     <Using Include="Autodesk.Revit.DB"/>
     <Using Include="Autodesk.Revit.UI"/>
     <Using Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ENG.addin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -134,17 +139,6 @@
   </Target>
 
   <Target Name="CopyFiles" AfterTargets="SignDll">
-    <ItemGroup>
-      <RootItems Include="$(TargetDir)\**\*.*"/>
-      <AddinItem Include="$(ProjectDir)*.addin"/>
-    </ItemGroup>
-    <PropertyGroup>
-      <RootDir>bin\Publish $(VersionTarget) - $(Configuration)\</RootDir>
-      <AddinDir>$(RootDir)\</AddinDir>
-    </PropertyGroup>
-    <Copy SourceFiles="@(RootItems)" DestinationFolder="$(RootDir)\%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300"/>
-    <Copy SourceFiles="@(AddinItem)" DestinationFolder="$(AddinDir)"/>
-
     <!-- Copy PackageContents.xml -->
     <ItemGroup>
       <PackageContentsItem Include="$(MSBuildProjectDirectory).Installer\PackageContents.xml"/>
@@ -157,7 +151,7 @@
 
     <!-- Copy addin files -->
     <ItemGroup>
-      <AddinFiles Include="$(RootDir)**\*.*"/>
+      <AddinFiles Include="$(TargetDir)**\*.*"/>
     </ItemGroup>
     <PropertyGroup>
       <AddinFolder>$(PackageContentsFolder)Contents\$(VersionTarget)</AddinFolder>

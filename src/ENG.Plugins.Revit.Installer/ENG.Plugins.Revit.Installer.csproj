@@ -5,7 +5,6 @@
     <TargetFramework>net48</TargetFramework>
     <ApplicationIcon>..\..\app.ico</ApplicationIcon>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>

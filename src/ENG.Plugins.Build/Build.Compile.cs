@@ -11,10 +11,12 @@ sealed partial class Build
         .Executes(() =>
         {
             foreach (string configuration in GlobBuildConfigurations())
+            {
                 DotNetBuild(settings => settings
                     .SetConfiguration(configuration)
                     .SetVersion(Version)
                     .SetVerbosity(DotNetVerbosity.minimal));
+            }
         });
 
     List<string> GlobBuildConfigurations()

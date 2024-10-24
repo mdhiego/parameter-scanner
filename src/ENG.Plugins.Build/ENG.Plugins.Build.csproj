@@ -7,7 +7,6 @@
     <NukeScriptDirectory>..\..</NukeScriptDirectory>
     <NukeTelemetryVersion>1</NukeTelemetryVersion>
     <NoWarn>CS0649;CS0169</NoWarn>
-    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

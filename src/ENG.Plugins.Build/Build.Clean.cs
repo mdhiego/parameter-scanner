@@ -16,7 +16,7 @@ sealed partial class Build
                 CleanDirectory(project.Directory / "obj");
             }
 
-            foreach (string? configuration in GlobBuildConfigurations())
+            foreach (string configuration in GlobBuildConfigurations())
             {
                 DotNetClean(settings => settings
                     .SetConfiguration(configuration)
