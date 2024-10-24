@@ -4,11 +4,15 @@
 
 ---
 
-### Description
+### Technology Overview
 
-The solution comprises and Autodesk Revit add-in project, a installer project, and a build project to build de add-in project for each supported
-Revit versions generating a single/multi-user installer at the end.
-The solution was organized in a manner that makes it easy to support multiple .NET BIM software programs and versions (e.g. Navisworks).
+The solution comprises an Autodesk Revit add-in project, an installer project, and a build project to build the add-in project for each supported
+Revit version.
+
+- The Revit versions supported are 2020, 2021, 2022, 2023, 2024 and 2025.
+- The languages supported are English (default) and Portuguese.
+- The installer project can generate a single/multi-user installer.
+- The solution was organized in a manner that makes it easy to support multiple .NET BIM software programs and versions (e.g. Navisworks).
 
 ### Technologies Used
 
@@ -35,7 +39,7 @@ If you don't have Visual Studio installed, download it from [here](https://visua
 
 1. Open Visual Studio
 2. Click on `File -> Open -> Project/Solution` and locate your solution file to open.
-3. In the `Solutions Configuration` drop-down menu, select `Release2023` or `Debug2023`. Suffix `2023` means compiling for the Revit 2023.
+3. In the `Solutions Configuration` drop-down menu, select `Debug2023` or `Release2023`. Suffix `2023` means compiling for the Revit 2023.
 4. After the solution loads, you can build it by clicking on `Build -> Build Solution`.
 
 ### Solution structure
