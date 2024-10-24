@@ -13,10 +13,21 @@ namespace ENG.Plugins.Revit.Commands;
 [Transaction(TransactionMode.Manual)]
 public class ParameterScannerCommand : ExternalCommand
 {
+    private static ParameterScannerView? s_view;
+
     public override void Execute()
     {
-        var viewModel = new ParameterScannerViewModel(ExternalCommandData.Application.ActiveUIDocument);
-        var view = new ParameterScannerView(viewModel);
-        _ = view.ShowDialog();
+        if (s_view is null)
+        {
+            var viewModel = new ParameterScannerViewModel(ExternalCommandData.Application.ActiveUIDocument);
+            s_view = new ParameterScannerView(viewModel);
+            s_view.Closed += static (_, _) => s_view = null;
+
+            s_view?.Show();
+        }
+        else
+        {
+            s_view.Close();
+        }
     }
 }

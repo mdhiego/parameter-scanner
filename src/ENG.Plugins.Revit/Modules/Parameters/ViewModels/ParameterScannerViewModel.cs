@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ENG.Plugins.Revit.Common.Abstractions;
 using ENG.Plugins.Revit.Common.Comparers;
 using Nice3point.Revit.Extensions;
 
@@ -63,7 +64,7 @@ public sealed partial class ParameterScannerViewModel : ObservableObject
     ///     Isolates all matching elements in the current view
     /// </summary>
     [RelayCommand(CanExecute = nameof(IsFormValid))]
-    private void IsolateInView()
+    private void IsolateInView(IClosableWindow view)
     {
         using var isolateTransaction = new Transaction(_activeDocument.Document, Localizations.IsolateInView_TransactionName);
         try
@@ -76,6 +77,7 @@ public sealed partial class ParameterScannerViewModel : ObservableObject
             isolateTransaction.Commit();
 
             TaskDialog.Show(Localizations.ParameterScanner_Title, string.Format(Localizations.ElementsFoundMessage, matchingElementIds.Count));
+            view.Close();
         }
         catch (Exception ex)
         {
@@ -88,7 +90,7 @@ public sealed partial class ParameterScannerViewModel : ObservableObject
     ///     Selects all matching elements in the current view
     /// </summary>
     [RelayCommand(CanExecute = nameof(IsFormValid))]
-    private void Select()
+    private void Select(IClosableWindow view)
     {
         try
         {
@@ -96,6 +98,7 @@ public sealed partial class ParameterScannerViewModel : ObservableObject
             _activeDocument.Selection.SetElementIds(matchingElementIds);
 
             TaskDialog.Show(Localizations.ParameterScanner_Title, string.Format(Localizations.ElementsFoundMessage, matchingElementIds.Count));
+            view.Close();
         }
         catch (Exception ex)
         {
