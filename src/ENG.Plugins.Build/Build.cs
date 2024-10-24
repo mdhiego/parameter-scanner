@@ -8,8 +8,8 @@ sealed partial class Build : NukeBuild
     private string[] Configurations;
     private Dictionary<Project, Project> InstallersMap;
 
-    [Secret] [Parameter] string VersionControlToken;
     [GitRepository] readonly GitRepository GitRepository;
+    [Secret] [Parameter] string GitHubToken;
 
     [Solution(GenerateProjects = true)] Solution Solution;
 
