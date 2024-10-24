@@ -18,7 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5B1C4A19-AF21-4B01-B2B7-6641DBA85513}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		docs\Changelog.md = docs\Changelog.md
+		Changelog.md = Changelog.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENG.Plugins.Revit", "src\ENG.Plugins.Revit\ENG.Plugins.Revit.csproj", "{EB8D635B-0DEC-4B16-B7C0-31B74C1DB2A8}"
