@@ -6,7 +6,7 @@
                     Description="A set of tools that helps you to work faster and smarter"
                     SupportedLocales="Enu|Ptb|Esp"
                     AppNameSpace="appstore.exchange.autodesk.com"
-                    AppVersion="0.1.1" FriendlyVersion="0.1.1"
+                    AppVersion="0.1.2" FriendlyVersion="0.1.2"
                     Icon="./Contents/Resources/app.ico"
                     OnlineDocumentation="https://engbim.com" HelpFile="./Contents/help.en.html">
     <CompanyDetails Name="ENG" Email="clients@engbim.com" Url="https://engbim.com" Phone=""/>
