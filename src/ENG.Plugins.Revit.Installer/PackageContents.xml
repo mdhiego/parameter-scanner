@@ -6,10 +6,22 @@
                     Description="A set of tools that helps you to work faster and smarter"
                     SupportedLocales="Enu|Ptb|Esp"
                     AppNameSpace="appstore.exchange.autodesk.com"
-                    AppVersion="0.1.2" FriendlyVersion="0.1.2"
+                    AppVersion="0.1.3" FriendlyVersion="0.1.3"
                     Icon="./Contents/Resources/app.ico"
                     OnlineDocumentation="https://engbim.com" HelpFile="./Contents/help.en.html">
     <CompanyDetails Name="ENG" Email="clients@engbim.com" Url="https://engbim.com" Phone=""/>
+  <Components AppendInDescription="2020 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2020" SeriesMax="R2020"/>
+    <ComponentEntry AppName="ENG.Plugins.Revit" Version="2020.0.0"
+                    ModuleName="./Contents/2020/ENG.addin"
+                    AppDescription="ENG - Revit"/>
+  </Components>
+  <Components AppendInDescription="2021 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2021" SeriesMax="R2021"/>
+    <ComponentEntry AppName="ENG.Plugins.Revit" Version="2021.0.0"
+                    ModuleName="./Contents/2021/ENG.addin"
+                    AppDescription="ENG - Revit"/>
+  </Components>
     <Components AppendInDescription="2022 parts">
         <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2022" SeriesMax="R2022"/>
         <ComponentEntry AppName="ENG.Plugins.Revit" Version="2022.0.0"

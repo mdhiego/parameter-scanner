@@ -1,12 +1,14 @@
-﻿namespace ENG.Plugins.Revit.Commands.Availability;
+﻿using Nice3point.Revit.Toolkit.External;
+
+namespace ENG.Plugins.Revit.Commands.Availability;
 
 /// <inheritdoc />
 /// <summary>
 ///     Only Available if the active document is open
 /// </summary>
-public sealed class DocumentCommandAvailability : IExternalCommandAvailability
+public sealed class DocumentCommandAvailability : ExternalCommandAvailability
 {
-    public bool IsCommandAvailable(UIApplication applicationData, CategorySet selectedCategories)
+    public override bool SetCommandAvailability(UIApplication applicationData, CategorySet selectedCategories)
     {
         return applicationData.ActiveUIDocument?.Document is not null;
     }
