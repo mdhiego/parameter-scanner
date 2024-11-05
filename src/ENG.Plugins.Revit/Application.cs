@@ -10,13 +10,14 @@ namespace ENG.Plugins.Revit;
 [UsedImplicitly]
 public class Application : ExternalApplication
 {
+    [UsedImplicitly]
     public override void OnStartup()
     {
         CreateParametersRibbon();
     }
 
     /// <summary>
-    ///     Creates the Parameters ribbon, containing the Parameter Scanner button
+    ///     Creates the Parameters ribbon, containing necessary buttons
     /// </summary>
     private void CreateParametersRibbon()
     {

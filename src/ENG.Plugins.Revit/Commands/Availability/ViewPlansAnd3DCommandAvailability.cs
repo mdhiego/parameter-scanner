@@ -10,10 +10,9 @@ public sealed class ViewPlansAnd3DCommandAvailability : ExternalCommandAvailabil
 {
     public override bool SetCommandAvailability(UIApplication applicationData, CategorySet selectedCategories)
     {
-        return applicationData.ActiveUIDocument?.Document is not null
-               && applicationData.ActiveUIDocument.Document.ActiveView?.ViewType
-                   is ViewType.ThreeD
-                   or ViewType.FloorPlan
-                   or ViewType.CeilingPlan;
+        return applicationData.ActiveUIDocument?.Document?.ActiveView?.ViewType
+            is ViewType.ThreeD
+            or ViewType.FloorPlan
+            or ViewType.CeilingPlan;
     }
 }
